@@ -40,12 +40,21 @@ const displayPhone = (phones) => {
   `;
     phoneContainer.appendChild(phoneDiv);
   });
+  toggleSpinner(false);
 };
  
 document.getElementById('btn-search').addEventListener('click',function(){
+  toggleSpinner(true);
   const searchField=document.getElementById('search-input');
   const searchText=searchField.value;
 loadPhone(searchText);
 })
-
-loadPhone();
+const toggleSpinner=isLoading=>{
+  const loaderSection=document.getElementById('loader');
+  if(isLoading){
+    loaderSection.classList.remove('d-none');
+  }else{
+    loaderSection.classList.add('d-none');
+  }
+}
+// loadPhone();
