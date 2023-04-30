@@ -95,5 +95,11 @@ const displayPhoneDetails=phone=>{
   console.log(phone);
   const modalTitle=document.getElementById('phoneDetailModalLabel');
   modalTitle.innerText=phone.name;
+  const phoneDetails=document.getElementById('phone-detail');
+  phoneDetails.innerHTML=`
+  <p > <strong>Release Date: </strong> ${phone.releaseDate ? phone.releaseDate: 'no found release date found'}</p>
+  <p> <strong>Others:</strong> ${phone.others ? phone.others.Bluetooth : "No bluetooth info found"}</p>
+  
+  `
 }
 loadPhone('apple');
